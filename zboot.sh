@@ -6,6 +6,14 @@ echo '############################################## ZBooting the Local Setup ##
 currentDBName="glide_xanadu"
 dumpFileName="glide_xanadu_with_devops.sql"
 
+echo "Do you want to zboot using personal DB Dump File? Hit Enter for yes or Press 'N' to run [gll zboot]:"
+read useDump
+if [ "$useDump" == "N" ] || [ "$useDump" == "n" ]; then
+  echo 'Running `gll zboot`: all the dependencies will be required to installed by yourself'
+  #gll1 zboot
+  exit 0
+fi
+
 echo "Do you want to apply dump file with Devops plugins? (Y/N) <Press Enter for Y>:"
 read decision
 if [ "$decision" == "N" ] || [ "$decision" == "n" ]; then

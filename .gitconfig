@@ -1,0 +1,26 @@
+[user]
+	name = corporateGHUserName
+	email = [EMAIL_ADDRESS]
+[branch]
+	autosetuprebase = always
+[core]
+	autocrlf = input
+	editor = code --wait
+[credential]
+	helper = osxkeychain
+[push]
+	autoSetupRemote = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[fetch]
+	prune = true
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = false
+[includeIf "gitdir:~/Documents/repos/myGithub/"]
+    path = ~/.gitconfig-personal
+
