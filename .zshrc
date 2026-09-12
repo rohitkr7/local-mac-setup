@@ -94,6 +94,21 @@ clean () {
         fi        
 }
 
+tree() {
+    # If the first argument is a plain number (e.g., 1, 3, 4)
+    if [[ "$1" =~ ^[0-9]+$ ]]; then
+        # Extract the number, shift the arguments, and run tree with -L <number>
+        local level=$1
+        shift
+        command tree -L "$level" -C --dirsfirst "$@"
+    # If no level flag (-L) is manually provided, default to 2
+    elif [[ "$*" != *"-L"* ]]; then
+        command tree -L 2 -C --dirsfirst "$@"
+    else
+        command tree -C --dirsfirst "$@"
+    fi
+}
+
 alias zboot='~/Documents/repos/myRepos/SnLocalSetup/zboot.sh'
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
@@ -140,3 +155,4 @@ export PATH="/Users/rohit.roy/.codeium/windsurf/bin:$PATH"
 export PATH="/Users/rohit.roy/.antigravity-ide/antigravity-ide/bin:$PATH"
 
 alias antigravity="antigravity-ide"
+
