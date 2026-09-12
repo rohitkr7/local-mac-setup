@@ -1,3 +1,10 @@
 [user]
     name = rohitkr7
     email = [EMAIL_ADDRESS]
+    signingkey = ~/.ssh/<ssh_id_file_name>
+
+[gpg]
+    format = ssh
+
+[commit]
+    gpgsign = true
