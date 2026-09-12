@@ -12,6 +12,9 @@ function title {
 }
 
 alias repos='cd ~/Documents/repos/ && tree -L 1'
+alias github='cd ~/Documents/repos/myGithub/ && tree -L 1'
+alias dpr='cd ~/Documents/repos/dpr/ && tree -L 1'
+
 alias dev='git checkout dev'
 alias master='git checkout master'
 alias main='git checkout main'
@@ -122,7 +125,7 @@ precmd() { vcs_info }
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
-PROMPT='
+PROMPT='%F{242}${(l:$COLUMNS::─:)}%f
 %F{201}%n%f %F{green}[${PWD/#$HOME/~}]%f%F{202}${vcs_info_msg_0_}%f
 %F{201}>>❯❯%f '
 
