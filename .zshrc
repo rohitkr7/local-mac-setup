@@ -11,8 +11,10 @@ function title {
     echo -ne "\033]0;"$*"\007"
 }
 
+alias repos='cd ~/Documents/repos/ && tree -L 1'
 alias dev='git checkout dev'
 alias master='git checkout master'
+alias main='git checkout main'
 alias launch='gll start'
 alias gp='git pull'
 alias gs='git status'
@@ -26,6 +28,9 @@ alias build='mvn clean install -U'
 alias zshrc='cat ~/.zshrc | less'
 alias shortcut='cat ~/.zshrc | less'
 alias zsh='code ~/.zshrc'
+alias cherry='~/Documents/cherry_pick.sh'
+alias python='python3'
+alias pip='pip3'
 
 gcb () {
         git checkout -b scratch/$1
@@ -89,7 +94,7 @@ clean () {
         fi        
 }
 
-alias zboot='~/Documents/repos/myRepos/SnLocalZboot/zboot.sh'
+alias zboot='~/Documents/repos/myRepos/SnLocalSetup/zboot.sh'
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 # Load version control information
@@ -102,8 +107,36 @@ precmd() { vcs_info }
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
-PROMPT='%F{magenta}%n%f %F{blue}[${PWD/#$HOME/~}]%f%F{red}${vcs_info_msg_0_}%f > '
+PROMPT='
+%F{201}%n%f %F{green}[${PWD/#$HOME/~}]%f%F{202}${vcs_info_msg_0_}%f
+%F{201}>>❯❯%f '
 
-NL='
->'
-PS1=${PS1}${NL}
+# SnLocalSetup aliases
+alias zboot='/Users/rohit.roy/Documents/repos/myRepos/SnLocalSetup/zboot.sh'
+alias setup='/Users/rohit.roy/Documents/repos/myRepos/SnLocalSetup/setup.sh'
+alias zdump='/Users/rohit.roy/Documents/repos/myRepos/SnLocalSetup/zdump.sh'
+
+
+# Added by Windsurf
+export PATH="$PATH:/Applications/Windsurf.app/Contents/Resources/app/bin"
+alias python=python3
+
+# Created by `pipx` on 2025-10-31 12:18:22
+export PATH="$PATH:/Users/rohit.roy/.local/bin"
+
+# Windsurf surf command - add ~/bin to PATH
+export PATH="$HOME/bin:$PATH"
+
+
+export PATH="$PATH:/Applications/ServiceNow CLI/bin"
+
+# Added by Devin
+export PATH="/Users/rohit.roy/.local/bin:$PATH"
+
+# Added by Devin
+export PATH="/Users/rohit.roy/.codeium/windsurf/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/rohit.roy/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+alias antigravity="antigravity-ide"
