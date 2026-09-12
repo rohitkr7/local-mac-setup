@@ -130,9 +130,9 @@ PROMPT='%F{242}${(l:$COLUMNS::─:)}%f
 %F{201}>>❯❯%f '
 
 # SnLocalSetup aliases
-alias zboot='/Users/rohit.roy/Documents/repos/myRepos/SnLocalSetup/zboot.sh'
-alias setup='/Users/rohit.roy/Documents/repos/myRepos/SnLocalSetup/setup.sh'
-alias zdump='/Users/rohit.roy/Documents/repos/myRepos/SnLocalSetup/zdump.sh'
+alias zboot='$HOME/Documents/repos/myRepos/SnLocalSetup/zboot.sh'
+alias setup='$HOME/Documents/repos/myRepos/SnLocalSetup/setup.sh'
+alias zdump='$HOME/Documents/repos/myRepos/SnLocalSetup/zdump.sh'
 
 
 # Added by Windsurf
@@ -140,7 +140,7 @@ export PATH="$PATH:/Applications/Windsurf.app/Contents/Resources/app/bin"
 alias python=python3
 
 # Created by `pipx` on 2025-10-31 12:18:22
-export PATH="$PATH:/Users/rohit.roy/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Windsurf surf command - add ~/bin to PATH
 export PATH="$HOME/bin:$PATH"
@@ -149,13 +149,13 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:/Applications/ServiceNow CLI/bin"
 
 # Added by Devin
-export PATH="/Users/rohit.roy/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Added by Devin
-export PATH="/Users/rohit.roy/.codeium/windsurf/bin:$PATH"
+export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 
 # Added by Antigravity IDE
-export PATH="/Users/rohit.roy/.antigravity-ide/antigravity-ide/bin:$PATH"
+export PATH="$HOME/.antigravity-ide/antigravity-ide/bin:$PATH"
 
 alias antigravity="antigravity-ide"
 
