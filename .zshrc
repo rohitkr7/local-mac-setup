@@ -209,3 +209,23 @@ export PATH="$HOME/.antigravity-ide/antigravity-ide/bin:$PATH"
 
 alias antigravity="antigravity-ide"
 
+# ----------------------------------------
+# --- Auto-start ServiceNow Dev Server with Race-Condition Guard ---
+# --- Zero-Lag Auto-start ServiceNow Dev Server ---
+(
+    SERVER_PORT=9999
+    LOCK_DIR="/tmp/servicenow_server_launch.lock"
+
+    # Use 'nc' (netcat) - it is significantly faster than lsof
+    if ! nc -z localhost $SERVER_PORT >/dev/null 2>&1; then
+        if mkdir "$LOCK_DIR" 2>/dev/null; then
+            # Start the server silently without blocking the prompt
+            (cd ~/Documents/repos/chrome-extension/servicenow-dev && nohup npm run server > ~/.servicenow-server.log 2>&1 &)
+            sleep 5
+            rmdir "$LOCK_DIR" 2>/dev/null
+        fi
+    fi
+) &| 
+# The &| puts this entire check in the background immediately
+# -------------------------------------------------
+
